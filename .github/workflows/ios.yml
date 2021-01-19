@@ -1,31 +1,31 @@
 name: iOS starter workflow
 
 on:
-  push:
-    branches: [ circleci-project-setup ]
-  pull_request:
-    branches: [ circleci-project-setup ]
+      push:
+            branches: [circleci-project-setup]
+      pull_request:
+            branches: [circleci-project-setup]
 
 jobs:
-  build:
-    name: Build and Test default scheme using any available iPhone simulator
-    runs-on: macos-latest
+      build:
+            name: Build and Test default scheme using any available iPhone simulator
+            runs-on: macos-latest
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Fastlane Action
-  # You may pin to the exact commit or the version.
-  # uses: maierj/fastlane-action@ff54e36585ac171c83e0eb582cf5757471b6a059
-        uses: maierj/fastlane-action@v2.0.0
-        with:
-    # The lane that should be executed.
-          lane: 
-    # The relative path from the project root directory to the subdirectory where the fastlane folder is located.
-          subdirectory: # optional
-    # The directory where Ruby gems should be installed to and cached. If a relative path is specified, it's applied relative to the location of the Gemfile, which is either the project root or the directory from the `subdirectory` parameter.
-          bundle-install-path: # optional
-    # The action tracks usage in Firebase by default. You can disable tracking by setting this parameter to 'true'.
-          skip-tracking: # optional
-    # The options that should be passed as arguments to the lane. The options should be serialized as a JSON object.
-          options: # optional
+            steps:
+                  - name: Checkout
+                    uses: actions/checkout@v2
+                  - name: Fastlane Action
+                    # You may pin to the exact commit or the version.
+                    # uses: maierj/fastlane-action@ff54e36585ac171c83e0eb582cf5757471b6a059
+                    uses: maierj/fastlane-action@v2.0.0
+                    with:
+                          # The lane that should be executed.
+                          lane: screenshots
+                          # The relative path from the project root directory to the subdirectory where the fastlane folder is located.
+                          # subdirectory: # optional
+                          # The directory where Ruby gems should be installed to and cached. If a relative path is specified, it's applied relative to the location of the Gemfile, which is either the project root or the directory from the `subdirectory` parameter.
+                          # bundle-install-path: # optional
+                          # The action tracks usage in Firebase by default. You can disable tracking by setting this parameter to 'true'.
+                          skip-tracking: false
+                          # The options that should be passed as arguments to the lane. The options should be serialized as a JSON object.
+                          # options: # optional
