@@ -1,3 +1,3 @@
 # ideal-pancake
 
-test github actions
+test github actions and SPM
